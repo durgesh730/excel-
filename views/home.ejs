@@ -1,0 +1,111 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Data Manage</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cabin&family=Cabin+Condensed&family=Catamaran:wght@100&family=Courgette&family=Fira+Sans&family=Fredoka+One&family=Inter:wght@300&family=Leckerli+One&family=Montez&family=Pacifico&family=Philosopher&family=Poppins&family=Roboto+Condensed&family=Roboto:ital@0;1&family=Rubik&family=Signika+Negative:wght@300&family=Source+Sans+Pro&family=Ubuntu:wght@300;400&family=Varela+Round&family=Yanone+Kaffeesatz&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://bootswatch.com/4/cosmo/bootstrap.css">
+  <link rel="stylesheet" href="view-source:https://bootswatch.com/cosmo/">
+  <link rel="stylesheet" href="./home.css">
+</head>
+
+  <style>
+     
+  </style>
+
+<body>
+  <nav class="navbar navbar-expand-lg " style="background-color: rgb(37, 37, 65);">
+    <div class="container">
+    <a class="navbar-brand " href="#" style="font-family: 'Philosopher', sans-serif; color: white; ">Data Management</a></div>
+  </nav>
+
+  <div class="row"
+    style=" margin: auto; margin-top: 4rem; width: fit-content; font-family: 'Philosopher', sans-serif; ">
+    <div class="lg-6">
+      <div class="card border-dark mb-3" style="max-width: 20rem; border-radius:.5rem; padding: 1rem 2rem; ">
+        <h3 class="text-center">Upload Files</h3>
+        <div class="card-body">
+          <form action="/" method="POST" enctype="multipart/form-data">
+            <div class="form-group">
+              <label for="excel">Browse File</label>
+              <input type="file" class="form-control " name="excel" required style=" border-radius:.3rem;"><br><br>
+              <input type="submit" value="Submit"
+                style="padding: .5rem 5.1rem; background-color: rgb(37, 37, 65); border-radius:.2rem; border: none; color: white; ">
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div><br><br>
+
+  <h3 class="text-center my-4 ">File Data</h3>
+
+  <%if(result.length>0){%>
+    <table class="table table-hover" border="1" style="width: 50%; margin: auto; margin-bottom: 5rem;">
+      <thead>
+        <tr>
+          <th>ProductLine</th>
+          <th>Territory</th>
+          <th>Shiped Units</th>
+          <th>Net Shiped Units</th>
+          <th>Net Sales</th>
+        </tr>
+      </thead>
+      <tbody>
+        <%for(var x=0;x < result.length;x++){%>
+          <tr>
+            <td>
+                <%= result[x].PRODUCTLINE%>
+            </td>
+            <td>
+                <%= result[x].TERRITORY %>
+                
+            </td>
+            <td>
+                <%= result[x].STATUS %>
+            </td>
+
+            <td>
+              <%if( result[x].STATUS == "Shipped"){%>
+                <%= result[x].STATUS %>
+             <%}%>
+            </td>
+            
+            <td>
+              <%if( result[x].STATUS == "Shipped"){%>
+                <%= result[x].SALES %>
+             <%}%>
+            </td>
+          </tr>
+          <%}%>
+          <div class="text-center my-2 mb-4 " >
+          <a  href="/export-users" style="background-color: rgb(37, 37, 65); color: white;  padding: .7rem 4rem; border-radius: .2rem; text-decoration: none; ">Download in excel file</a></div>
+      </tbody>
+    </table>
+    <%}%>
+ 
+
+
+
+
+      <div class="text-center"  style="background-color: rgb(37, 37, 65); padding-top: 1rem; padding-bottom: .5rem; ">
+        <small style="color: white;" >@Durgesh chaudhary</small>
+      </div>
+
+
+      <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
